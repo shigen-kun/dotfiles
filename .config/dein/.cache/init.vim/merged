@@ -1,0 +1,2 @@
+100
+['Shougo/dein.vim', 'Shougo/deol.nvim', 'Shougo/deoplete.nvim', 'Shougo/neocomplete.vim', 'Shougo/neosnippet-snippets', 'Shougo/neosnippet.vim', 'Shougo/vimproc.vim', 'Yggdroot/indentLine', 'cohama/lexima.vim', 'dhruvasagar/vim-table-mode', 'flazz/vim-colorschemes', 'justinmk/vim-dirvish', 'kassio/neoterm', 'othree/yajs.vim', 'rcmdnk/vim-markdown', 'slim-template/vim-slim', 'suan/vim-instant-markdown', 'szw/vim-tags', 'thinca/vim-quickrun', 'w0rp/ale']
