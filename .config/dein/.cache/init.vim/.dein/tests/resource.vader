@@ -1,0 +1,65 @@
+Execute (Make sure tab is off):
+  set expandtab
+
+Given terraform (Resource Completion Test):
+
+Do (Autocompletion for resource first test):
+  iresource "aws_\<C-X>\<C-O>
+
+Expect (get aws_alb):
+  resource "aws_alb
+
+Do (Autocompletion for resource second docker test):
+  iresource "docker_\<C-X>\<C-O>
+
+Expect (get docker_container):
+  resource "docker_container
+
+Given terraform (Argument Completion Test):
+  resource "docker_container" "sd" {
+  }
+
+Do (Autocompletion for Argument Test):
+  o\<C-X>\<C-O>
+
+Expect (get capabilities):
+  resource "docker_container" "sd" {
+  capabilities
+  }
+
+Given terraform (Block Argument Completion Test):
+  resource "vsphere_virtual_machine" "sd" {
+    network_interface {
+    }
+  }
+
+Do (Autocompletion for Block Argument Test):
+  1jo\<C-X>\<C-O>\<ESC><<
+
+Expect (get adapter_type):
+  resource "vsphere_virtual_machine" "sd" {
+    network_interface {
+  adapter_type
+    }
+  }
+
+
+Given terraform (Resource Interpolation Completion Test):
+  resource "docker_container" "sd" {
+  }
+
+  resource "docker_container" "sd2" {
+  }
+
+Do (Autocompletion for interpolation):
+  3joname = "${\<C-X>\<C-O>.\<C-X>\<C-O>.\<C-X>\<C-O>}"\<ESC>
+  oname = "${\<C-X>\<C-O>.\<C-X>\<C-O>\<C-N>.\<C-X>\<C-O>}"\<ESC>
+
+Expect (get docker_container):
+  resource "docker_container" "sd" {
+  }
+
+  resource "docker_container" "sd2" {
+  name = "${docker_container.sd.bridge}"
+  name = "${docker_container.sd2.bridge}"
+  }

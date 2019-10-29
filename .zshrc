@@ -4,6 +4,9 @@ export LANG=ja_JP.UTF-8
 # Show Japanese file name
 setopt print_eight_bit
 
+## tmux
+[[ -z "$TMUX" && ! -z "$PS1" ]] && exec tmux
+
 ## Directory
 # Change directory without cd command
 setopt autocd
@@ -87,14 +90,17 @@ PROMPT="%{${fg[green]}%}%n@%m%{${reset_color}%} %~
 %# "
 
 ## Path
+# local
+export PATH="/usr/local/sbin:$PATH"
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 alias brew="env PATH=${PATH/\/Users\/lin\/\.pyenv\/shims:/} brew"
-# conda
-alias activate="source $PYENV_ROOT/versions/anaconda3-5.0.1/bin/activate"
-alias deactivate="source $PYENV_ROOT/versions/anaconda3-5.0.1/bin/deactivate"
+# pyenv-virtualenv
+#export PATH="/usr/local/opt/openssl/bin:$PATH"
+eval "$(pyenv virtualenv-init -)"
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 # rbenv
 export RBENV_ROOT="$HOME/.rbenv"
 export PATH="$RBENV_ROOT/bin:$PATH"
@@ -102,7 +108,6 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 ## zplug
 # Road init file
@@ -153,3 +158,4 @@ setopt notify
 setopt correct
 # Turn off the beep sound
 unsetopt beep
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

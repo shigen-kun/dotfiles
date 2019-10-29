@@ -33,3 +33,9 @@ repo = 'suan/vim-instant-markdown'
 
 [[plugins]]
 repo = 'justinmk/vim-dirvish'
+
+[[plugins]]
+repo = 'hashivim/vim-terraform'
+
+[[plugins]]
+repo = 'juliosueiras/vim-terraform-completion'

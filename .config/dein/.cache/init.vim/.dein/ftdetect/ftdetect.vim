@@ -118,6 +118,9 @@ if has('nvim')
           \ endif
   aug END
 end
+au BufRead,BufNewFile *.tf setlocal filetype=terraform
+au BufRead,BufNewFile *.tfvars setlocal filetype=terraform
+au BufRead,BufNewFile *.tfstate setlocal filetype=javascript
 autocmd BufNewFile,BufRead *.slim setfiletype slim
 " Detect syntax file.
 autocmd BufNewFile,BufRead *.snip,*.snippets set filetype=neosnippet

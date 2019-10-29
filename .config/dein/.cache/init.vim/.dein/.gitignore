@@ -1,1 +1,8 @@
-node_modules
+lib/*
+doc/tags
+*.obj
+*.o
+*.so
+*.dll
+*.swp
+*~

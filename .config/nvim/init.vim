@@ -129,5 +129,8 @@ set hidden
 set clipboard=unnamed
 
 "" Python
-let g:python_host_prog='/Users/lin/.pyenv/versions/anaconda3-5.0.1/bin/python'
-let g:python3_host_prog='/Users/lin/.pyenv/versions/anaconda3-5.0.1/bin/python3'
+let g:python_host_prog = '/Users/lin/.pyenv/versions/2.7.14/bin/python2'
+let g:python3_host_prog = '/Users/lin/.pyenv/versions/3.6.4/bin/python3'
+
+"" terraform
+let g:terraform_fmt_on_save = 1
